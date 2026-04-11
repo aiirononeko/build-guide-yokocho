@@ -1,0 +1,15 @@
+{
+	"compatibility_date": "2026-04-11",
+	"compatibility_flags": [
+		"global_fetch_strictly_public"
+	],
+	"name": "build-guide-yokocho",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	}
+}

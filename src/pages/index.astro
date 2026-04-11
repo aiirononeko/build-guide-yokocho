@@ -1,0 +1,660 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GuideCard from "../components/GuideCard.astro";
+import { guides } from "../data/guides";
+
+export const prerender = true;
+
+const allTags = Array.from(new Set(guides.flatMap((g) => g.tags))).sort();
+const totalGuides = guides.length;
+---
+
+<Layout title="自作キーボード ビルドガイド横丁 / build guide yokocho">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo" aria-label="build guide yokocho">
+        <span class="logo-mark" aria-hidden="true">◉</span>
+        <span class="logo-text">build guide yokocho</span>
+      </a>
+      <nav class="nav" aria-label="primary">
+        <a href="#guides">Guides</a>
+        <a href="#about">About</a>
+        <a
+          href="https://github.com/aiirononeko/build-guide-yokocho"
+          target="_blank"
+          rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-meta">
+          <span class="badge">EST. 2026</span>
+          <span class="badge-line"
+            >— A FIELD GUIDE TO JAPANESE SELF-MADE KEYBOARDS</span
+          >
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-en">Build Guide</span>
+          <span class="hero-title-jp">ビルドガイド横丁</span>
+        </h1>
+        <p class="hero-tagline">
+          国内外の自作キーボードのビルドガイドを横断的に集めた、ストック型ポータル。<br
+          />
+          ビール片手に眺めて、ニヤニヤできる場所。
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">{String(totalGuides).padStart(3, "0")}</span>
+            <span class="stat-label">guides curated</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">{String(allTags.length).padStart(3, "0")}</span>
+            <span class="stat-label">tags indexed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">growing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters" id="guides">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head-left">
+            <span class="section-marker" aria-hidden="true">●</span>
+            <h2 class="section-title">/ Guides</h2>
+          </div>
+          <span class="section-meta">
+            <span id="result-count">{totalGuides}</span> / {totalGuides} entries
+          </span>
+        </div>
+
+        <div class="filter-row">
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="search keyboard or designer..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+        </div>
+
+        <div class="tags-row" id="tag-filter" role="group" aria-label="タグ絞り込み">
+          <button class="tag-pill is-active" data-tag="all" type="button">
+            all
+          </button>
+          {
+            allTags.map((tag) => (
+              <button class="tag-pill" data-tag={tag} type="button">
+                {tag}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-section">
+      <div class="container">
+        <div class="card-grid" id="card-grid">
+          {guides.map((g, i) => <GuideCard guide={g} index={i + 1} />)}
+        </div>
+        <p class="empty-state" id="empty-state" hidden>
+          ─ no guides match your filter ─
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-inner">
+        <div class="about-head">
+          <span class="section-marker" aria-hidden="true">●</span>
+          <h2 class="section-title">/ About</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <h3 class="about-title">A field guide,<br />not a forge.</h3>
+          </div>
+          <div class="about-body">
+            <p>
+              ビルドガイド横丁は、自作キーボードのビルドガイドを横断的に「眺められる」場所です。
+              各ガイドの本体は作者のサイトに委ねつつ、ここではメタデータの集約と検索性に専念しています。
+            </p>
+            <p>
+              設計者が他の人のガイドから学び、ビルダーが自分のキットの組み立て手順にすぐ辿り着き、愛好家が新しい一台を発見する。
+              そんな、国内の自作キーボード文化の可視化を目指しています。
+            </p>
+            <p class="about-note">
+              ※ 現在表示されているのはMVP用のサンプルデータです。掲載許可の取得後、順次正式公開していきます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">◉ build guide yokocho</span>
+        <span class="footer-copy">© 2026 — curated with care</span>
+      </div>
+      <div class="footer-right">
+        <span>made for the joy of self-made keyboards</span>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  const searchInput = document.getElementById(
+    "search-input"
+  ) as HTMLInputElement | null;
+  const tagFilter = document.getElementById(
+    "tag-filter"
+  ) as HTMLDivElement | null;
+  const cards = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-card]")
+  );
+  const resultCount = document.getElementById(
+    "result-count"
+  ) as HTMLSpanElement | null;
+  const emptyState = document.getElementById(
+    "empty-state"
+  ) as HTMLElement | null;
+
+  if (searchInput && tagFilter && resultCount && emptyState) {
+    const activeTags = new Set<string>();
+    let searchQuery = "";
+
+    const filterCards = () => {
+      let visible = 0;
+      cards.forEach((card) => {
+        const name = (card.dataset.name ?? "").toLowerCase();
+        const designer = (card.dataset.designer ?? "").toLowerCase();
+        const tags = (card.dataset.tags ?? "").split(",");
+
+        const matchesSearch =
+          searchQuery === "" ||
+          name.includes(searchQuery) ||
+          designer.includes(searchQuery);
+        const matchesTags =
+          activeTags.size === 0 ||
+          Array.from(activeTags).every((t) => tags.includes(t));
+
+        const show = matchesSearch && matchesTags;
+        card.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+      resultCount.textContent = String(visible);
+      emptyState.hidden = visible > 0;
+    };
+
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      filterCards();
+    });
+
+    tagFilter.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.matches(".tag-pill")) return;
+      const tag = target.dataset.tag;
+      if (!tag) return;
+
+      const allButton = tagFilter.querySelector<HTMLButtonElement>(
+        ".tag-pill[data-tag='all']"
+      );
+
+      if (tag === "all") {
+        activeTags.clear();
+        tagFilter
+          .querySelectorAll(".tag-pill")
+          .forEach((p) => p.classList.remove("is-active"));
+        target.classList.add("is-active");
+      } else {
+        allButton?.classList.remove("is-active");
+        if (activeTags.has(tag)) {
+          activeTags.delete(tag);
+          target.classList.remove("is-active");
+        } else {
+          activeTags.add(tag);
+          target.classList.add("is-active");
+        }
+        if (activeTags.size === 0) {
+          allButton?.classList.add("is-active");
+        }
+      }
+      filterCards();
+    });
+  }
+</script>
+
+<style>
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: 0 20px;
+    }
+  }
+
+  /* Header */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: rgba(244, 241, 234, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .logo-mark {
+    color: var(--accent);
+    font-size: 12px;
+    transform: translateY(-1px);
+  }
+
+  .nav {
+    display: flex;
+    gap: 32px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+
+  .nav a {
+    transition: color 0.15s ease;
+  }
+
+  .nav a:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .nav {
+      gap: 18px;
+      font-size: 12px;
+    }
+    .header-inner {
+      height: 60px;
+    }
+    .logo-text {
+      display: none;
+    }
+  }
+
+  /* Hero */
+  .hero {
+    padding: 112px 0 96px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  .badge {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 5px 10px 4px;
+    font-weight: 600;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .hero-title-en {
+    font-size: clamp(64px, 11vw, 168px);
+    color: var(--text);
+  }
+
+  .hero-title-jp {
+    font-family: var(--font-jp-display);
+    color: var(--accent);
+    font-size: clamp(28px, 5.2vw, 72px);
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .hero-tagline {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-soft);
+    max-width: 640px;
+    margin-bottom: 72px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 64px;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .stat-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 64px 0 56px;
+    }
+    .hero-tagline {
+      margin-bottom: 56px;
+      font-size: 15px;
+    }
+    .hero-stats {
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-size: 36px;
+    }
+  }
+
+  /* Filters */
+  .filters {
+    padding: 64px 0 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 36px;
+    gap: 16px;
+  }
+
+  .section-head-left {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .section-marker {
+    color: var(--accent);
+    font-size: 8px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .section-meta {
+    font-family: var(--font-display);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    white-space: nowrap;
+  }
+
+  .filter-row {
+    margin-bottom: 24px;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-mute);
+    font-size: 18px;
+    pointer-events: none;
+  }
+
+  #search-input {
+    width: 100%;
+    padding: 16px 20px 16px 48px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    font-size: 15px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s ease;
+    font-family: var(--font-body);
+  }
+
+  #search-input::placeholder {
+    color: var(--text-mute);
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  #search-input:focus {
+    border-color: var(--accent);
+  }
+
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag-pill {
+    padding: 7px 14px 6px;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--text-soft);
+    transition: all 0.15s ease;
+    text-transform: lowercase;
+  }
+
+  .tag-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .tag-pill.is-active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+
+  /* Grid */
+  .grid-section {
+    padding: 56px 0 96px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--text-mute);
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  /* About */
+  .about {
+    padding: 96px 0 120px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-soft);
+  }
+
+  .about-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+  }
+
+  .about-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+
+  .about-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text-soft);
+    max-width: 540px;
+  }
+
+  .about-note {
+    margin-top: 16px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--border-strong);
+    font-size: 12px;
+    color: var(--text-mute);
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 760px) {
+    .about {
+      padding: 64px 0 80px;
+    }
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    background: var(--bg);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--text-soft);
+    letter-spacing: 0.04em;
+    gap: 16px;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .footer-copy {
+    color: var(--text-mute);
+  }
+
+  .footer-right {
+    color: var(--text-mute);
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-left {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+</style>

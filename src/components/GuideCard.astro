@@ -1,0 +1,200 @@
+---
+import type { Guide } from "../data/guides";
+
+type Props = {
+  guide: Guide;
+  index: number;
+};
+
+const { guide, index } = Astro.props;
+const indexStr = String(index).padStart(3, "0");
+---
+
+<article
+  class="card"
+  data-card
+  data-name={guide.name.toLowerCase()}
+  data-designer={guide.designer.toLowerCase()}
+  data-tags={guide.tags.join(",")}
+>
+  <div class="card-header">
+    <span class="card-index">N°{indexStr}</span>
+    <span class="card-divider"></span>
+    <span class="card-dot" aria-hidden="true">●</span>
+  </div>
+
+  <div class="card-body">
+    <h3 class="card-title">{guide.name}</h3>
+    <p class="card-designer">
+      by <span>{guide.designer}</span>
+    </p>
+    <p class="card-desc">{guide.description}</p>
+  </div>
+
+  <div class="card-tags">
+    {guide.tags.map((t) => <span class="card-tag">#{t}</span>)}
+  </div>
+
+  <div class="card-links">
+    <a
+      href={guide.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="card-link primary"
+    >
+      <span>Build Guide</span>
+      <span class="arrow">→</span>
+    </a>
+    {
+      guide.shopLinks.map((s) => (
+        <a
+          href={s.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-link"
+        >
+          <span>{s.name}</span>
+          <span class="arrow">→</span>
+        </a>
+      ))
+    }
+  </div>
+</article>
+
+<style>
+  .card {
+    padding: 32px 28px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    transition: background-color 0.2s ease;
+    min-height: 360px;
+  }
+
+  .card:hover {
+    background: var(--bg-elev);
+  }
+
+  .card:hover .card-dot {
+    color: var(--accent);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+  }
+
+  .card-index {
+    font-weight: 600;
+  }
+
+  .card-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .card-dot {
+    color: var(--text-mute);
+    font-size: 8px;
+    transition: color 0.2s ease;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .card-designer {
+    font-size: 13px;
+    color: var(--text-soft);
+    letter-spacing: 0.01em;
+  }
+
+  .card-designer span {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .card-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-soft);
+    margin-top: 6px;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+
+  .card-tag {
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--text-mute);
+    letter-spacing: 0.02em;
+  }
+
+  .card-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .card-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    padding: 8px 0;
+    transition: color 0.15s ease;
+  }
+
+  .card-link.primary {
+    font-weight: 600;
+  }
+
+  .card-link + .card-link {
+    border-top: 1px dashed var(--border);
+  }
+
+  .card-link:hover {
+    color: var(--accent);
+  }
+
+  .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .card-link:hover .arrow {
+    transform: translateX(4px);
+  }
+</style>
