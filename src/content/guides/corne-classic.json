@@ -1,0 +1,8 @@
+{
+  "name": "Corne Classic",
+  "designer": "foostan",
+  "description": "初代Corneキーボード。3x6カラムスタッガード+3キーの分割構成。スルーホールダイオード対応のはんだ付けモデルで、LED・OLED搭載可能。",
+  "url": "https://github.com/foostan/crkbd/blob/main/docs/corne-classic/buildguide_jp.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "MX互換"],
+  "addedAt": "2026-04-13"
+}

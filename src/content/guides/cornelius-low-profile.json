@@ -1,0 +1,11 @@
+{
+  "name": "Cornelius Low-profile",
+  "designer": "foostan",
+  "description": "Corneliusの薄型モデル。Lofreeスイッチ対応のロープロファイル設計で、アルミニウムボディながら27mmの薄さを実現。",
+  "url": "https://github.com/foostan/corneliuskbd/blob/main/docs/v2/buildguide.md",
+  "tags": ["一体型", "40%", "カラムスタッガード", "ガスケットマウント", "ロープロファイル"],
+  "shopLinks": [
+    { "name": "BOOTH", "url": "https://pskbd.booth.pm/items/6029066" }
+  ],
+  "addedAt": "2026-04-12"
+}

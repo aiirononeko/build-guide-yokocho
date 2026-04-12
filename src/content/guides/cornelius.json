@@ -1,11 +1,8 @@
 {
   "name": "Cornelius",
   "designer": "foostan",
-  "description": "ガスケットマウントのアルミニウム一体型カラムスタッガードキーボード。10°のスラント角で自然な手首の角度を実現。Low-profile版はLofreeスイッチ対応の薄型モデル。",
-  "url": "https://github.com/foostan/corneliuskbd/blob/main/docs/v2/buildguide.md",
-  "tags": ["一体型", "40%", "カラムスタッガード", "ガスケットマウント"],
-  "shopLinks": [
-    { "name": "BOOTH (Low-profile)", "url": "https://pskbd.booth.pm/items/6029066" }
-  ],
-  "addedAt": "2026-04-12"
+  "description": "ガスケットマウントのアルミニウム削り出し一体型カラムスタッガードキーボード。左右間20°のスラント角で自然な手首の角度を実現。全キー1uサイズの48キー構成。",
+  "url": "https://github.com/foostan/corneliuskbd/blob/main/docs/v1/buildguide_ja.md",
+  "tags": ["一体型", "40%", "カラムスタッガード", "ガスケットマウント", "MX互換"],
+  "addedAt": "2026-04-13"
 }
