@@ -1,7 +1,7 @@
 {
   "name": "Cornelius",
   "designer": "foostan",
-  "description": "ガスケットマウントのアルミニウム削り出し一体型カラムスタッガードキーボード。左右間20°のスラント角で自然な手首の角度を実現。全キー1uサイズの48キー構成。",
+  "description": "ガスケットマウントのアルミ切削一体型カラムスタッガードキーボード。48キーの40%レイアウトで、タイピング角度は6.5度。キット標準はホットスワップPCBで、はんだ付けPCBも選択可能。",
   "url": "https://github.com/foostan/corneliuskbd/blob/main/docs/v1/buildguide_ja.md",
   "tags": ["一体型", "40%", "カラムスタッガード", "ガスケットマウント", "MX互換"],
   "addedAt": "2026-04-12"

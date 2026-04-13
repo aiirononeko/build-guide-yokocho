@@ -1,7 +1,7 @@
 {
-  "name": "Corne Light",
+  "name": "Corne Light v1",
   "designer": "foostan",
-  "description": "Corneの簡素化モデル。部品点数を減らしたはんだ付け専用設計で、自作キーボードの組み立て入門に最適。コンスルー対応ProMicro仕様。",
+  "description": "Corne Lightの初版。部品点数を抑えたシンプルなはんだ付けモデルで、42キー構成の分割カラムスタッガード。ProMicro(コンスルー付き)とOLEDモジュールに対応。",
   "url": "https://github.com/foostan/crkbd/blob/main/docs/corne-light/v1/buildguide_jp.md",
   "tags": ["分割", "40%", "カラムスタッガード", "MX互換"],
   "addedAt": "2026-04-12"
