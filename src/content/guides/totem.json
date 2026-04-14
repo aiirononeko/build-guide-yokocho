@@ -1,0 +1,8 @@
+{
+  "name": "TOTEM",
+  "designer": "GEIGEIGEIST",
+  "description": "38キーのカラムスタッガードChoc分割キーボード。Seeed Studio XIAO nRF52840 BLE / XIAO RP2040 を前提に設計され、ケースなしでも使えるコンパクトなロープロファイルモデル。",
+  "url": "https://github.com/GEIGEIGEIST/TOTEM/blob/main/docs/buildguide.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "addedAt": "2026-04-15"
+}
