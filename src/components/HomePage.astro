@@ -45,8 +45,12 @@ const taglineLines = t("hero.tagline").split("\n");
         target="_blank"
         rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a
       >
-      <a href={getLocalePath(alternateLang)} class="lang-switch">
-        {languages[alternateLang]}
+      <a href={getLocalePath(alternateLang)} class="lang-toggle" aria-label={`Switch to ${languages[alternateLang]}`}>
+        <span class:list={["lang-label", { active: lang === "ja" }]}>JA</span>
+        <span class="lang-track">
+          <span class:list={["lang-thumb", { "is-en": lang === "en" }]} />
+        </span>
+        <span class:list={["lang-label", { active: lang === "en" }]}>EN</span>
       </a>
     </nav>
   </div>
@@ -328,18 +332,63 @@ const taglineLines = t("hero.tagline").split("\n");
     color: var(--accent);
   }
 
-  .lang-switch {
-    padding: 4px 12px;
-    border: 1px solid var(--border-strong);
-    font-size: 13px;
-    letter-spacing: 0.02em;
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     text-transform: none;
-    transition: all 0.15s ease;
+    text-decoration: none;
+    cursor: pointer;
   }
 
-  .lang-switch:hover {
-    border-color: var(--accent);
+  .lang-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--text-mute);
+    transition: color 0.2s ease;
+    user-select: none;
+  }
+
+  .lang-label.active {
+    color: var(--text);
+  }
+
+  .lang-toggle:hover .lang-label.active {
     color: var(--accent);
+  }
+
+  .lang-track {
+    position: relative;
+    width: 32px;
+    height: 18px;
+    background: var(--border-strong);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+  }
+
+  .lang-toggle:hover .lang-track {
+    background: var(--accent-soft);
+  }
+
+  .lang-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    background: var(--text);
+    border-radius: 50%;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .lang-thumb.is-en {
+    transform: translateX(14px);
+  }
+
+  .lang-toggle:hover .lang-thumb {
+    background: var(--accent);
   }
 
   @media (max-width: 640px) {
@@ -353,9 +402,20 @@ const taglineLines = t("hero.tagline").split("\n");
     .logo-text {
       display: none;
     }
-    .lang-switch {
-      padding: 3px 8px;
-      font-size: 11px;
+    .lang-label {
+      font-size: 10px;
+    }
+    .lang-track {
+      width: 28px;
+      height: 16px;
+      border-radius: 8px;
+    }
+    .lang-thumb {
+      width: 10px;
+      height: 10px;
+    }
+    .lang-thumb.is-en {
+      transform: translateX(12px);
     }
   }
 
