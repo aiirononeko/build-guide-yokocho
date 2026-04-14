@@ -1,0 +1,8 @@
+{
+  "name": "Soyuz",
+  "designer": "ai03",
+  "description": "ai03設計のシングルPCBテンキーパッドキット。Pro Micro系マイコンとCherry MX互換スイッチで組み立てられ、レイアウトに応じて17〜20個のスイッチを使う。",
+  "url": "https://github.com/ai03-2725/Soyuz/blob/master/BuildGuide-Japanese.md",
+  "tags": ["一体型", "マクロパッド", "MX互換"],
+  "addedAt": "2026-04-15"
+}
