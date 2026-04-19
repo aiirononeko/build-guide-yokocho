@@ -1,0 +1,11 @@
+{
+  "name": "moNa2",
+  "designer": "shakupan & 白湯_sayu",
+  "description": "shakupan氏と白湯_sayu氏の共同設計。42キー・17mmナローピッチの分割ロープロファイルキーボード。右手側に25mmトラックボール、ロータリーエンコーダを搭載し、ZMKファームウェアで完全無線動作する。",
+  "url": "https://github.com/sayu-hub/zmk-config-moNa2/blob/main/docs/on-boarding.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル", "トラックボール"],
+  "shopLinks": [
+    { "name": "BOOTH", "url": "https://shakupan.booth.pm/items/6376654" }
+  ],
+  "addedAt": "2026-04-19"
+}
