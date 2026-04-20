@@ -1,0 +1,11 @@
+{
+  "name": "roBa",
+  "designer": "kuma",
+  "description": "Keyballに影響を受けた42キーのワイヤレス分割カラムスタッガードキーボード。ZMK FirmwareによるBLE接続、トラックボール、省電力センサ、水平ロータリーエンコーダを備える。",
+  "url": "https://github.com/kumamuk-git/roBa/blob/main/doc/v3/buildguide_v3.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "MX互換", "Choc互換"],
+  "shopLinks": [
+    { "name": "BOOTH", "url": "https://booth.pm/ja/items/6010869" }
+  ],
+  "addedAt": "2026-04-20"
+}
