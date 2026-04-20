@@ -1,0 +1,8 @@
+{
+  "name": "Sofle Keyboard",
+  "designer": "Josef Adamcik",
+  "description": "6×4+5配列のカラムスタッガード分割キーボード。Lily58、Corne、Helixをベースにした設計で、標準版のビルドガイドではv1/v2の差分とロータリーエンコーダ対応を案内している。",
+  "url": "https://josefadamcik.github.io/SofleKeyboard/build_guide.html",
+  "tags": ["分割", "カラムスタッガード", "MX互換"],
+  "addedAt": "2026-04-20"
+}
