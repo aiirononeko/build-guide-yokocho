@@ -1,0 +1,8 @@
+{
+  "name": "Scylla",
+  "designer": "Quentin Lebastard",
+  "description": "4x6+5配列の分割コンケーブキーボード。番号行と5キーのサムクラスタを備え、指の移動量を抑えるキーウェルとカラム配列を採用する。",
+  "url": "https://docs.bastardkb.com/bg_scylla/01index.html",
+  "tags": ["分割", "カラムスタッガード"],
+  "addedAt": "2026-04-15"
+}

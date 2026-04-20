@@ -1,0 +1,8 @@
+{
+  "name": "Charybdis Mini",
+  "designer": "Quentin Lebastard",
+  "description": "3x6+3配列の分割コンケーブトラックボールキーボード。コンパクトで静音性を意識した設計で、公式 docs では Charybdis Nano のビルドガイドを案内している。",
+  "url": "https://docs.bastardkb.com/bg_cnano/01index.html",
+  "tags": ["分割", "カラムスタッガード"],
+  "addedAt": "2026-04-15"
+}

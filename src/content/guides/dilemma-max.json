@@ -1,0 +1,8 @@
+{
+  "name": "Dilemma MAX",
+  "designer": "Quentin Lebastard",
+  "description": "4x6+4配列の分割トラックパッドキーボード。Dilemma の思想を保ったままキー数を増やしたモデルで、ホットスワップとPer-key RGBに対応する。",
+  "url": "https://docs.bastardkb.com/bg_dilemma/",
+  "tags": ["分割", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "addedAt": "2026-04-15"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "KLOTZ",
+  "designer": "GEIGEIGEIST",
+  "description": "34キーのカラムスタッガードChoc分割キーボード。各サイドにロープロファイルエンコーダと3つのステータスLEDを備え、SplitKB Tenting Puck に対応する。",
+  "url": "https://github.com/GEIGEIGEIST/KLOTZ/blob/main/docs/buildguide.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "addedAt": "2026-04-15"
+}
