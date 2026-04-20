@@ -1,0 +1,11 @@
+{
+  "name": "moNa2",
+  "designer": "白湯_sayu / shakupan",
+  "description": "moNaの右手トラックボール版。42キーのロープロファイル分割キーボードで、17mmキーピッチ、ZMK Firmwareによる完全無線、25mmトラックボール、ロータリーエンコーダ、背面マグネットを備える。",
+  "url": "https://github.com/sayu-hub/zmk-config-moNa2/blob/main/docs/on-boarding.md",
+  "tags": ["分割", "Choc互換", "ロープロファイル"],
+  "shopLinks": [
+    { "name": "BOOTH", "url": "https://booth.pm/ja/items/6376654" }
+  ],
+  "addedAt": "2026-04-20"
+}
