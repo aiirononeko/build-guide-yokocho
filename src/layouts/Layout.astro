@@ -56,6 +56,9 @@ const alternateURL = new URL(getLocalePath(alternateLang), SITE_URL);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:site_name" content={t("meta.siteName")} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={alternateLocale} />
@@ -113,6 +116,12 @@ const alternateURL = new URL(getLocalePath(alternateLang), SITE_URL);
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     background-color: var(--bg);
     color: var(--text);
@@ -147,5 +156,17 @@ const alternateURL = new URL(getLocalePath(alternateLang), SITE_URL);
   ::selection {
     background: var(--accent);
     color: var(--bg);
+  }
+
+  .sr-live {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>

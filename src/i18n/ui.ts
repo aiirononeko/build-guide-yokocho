@@ -43,6 +43,7 @@ export const ui = {
     "card.buildGuide": "Build Guide",
     "card.share": "リンクをシェア",
     "card.copied": "リンクをコピーしました",
+    "card.copyFailed": "リンクのコピーに失敗しました",
 
     // About
     "about.sectionTitle": "/ About",
@@ -96,6 +97,7 @@ export const ui = {
     "card.buildGuide": "Build Guide",
     "card.share": "Share link",
     "card.copied": "Link copied",
+    "card.copyFailed": "Failed to copy link",
 
     // About
     "about.sectionTitle": "/ About",

@@ -3,7 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import HomePage from "../../../components/HomePage.astro";
-import { useTranslations, getLocalePath } from "../../../i18n/utils";
+import { useTranslations } from "../../../i18n/utils";
 
 export const prerender = true;
 
@@ -26,7 +26,6 @@ const description =
     ? guide.descriptionEn
     : guide.description;
 const ogImage = `${SITE_URL}/og/${guide.id}.png`;
-const canonical = `${SITE_URL}${getLocalePath(lang)}`;
 ---
 
 <Layout
@@ -34,7 +33,6 @@ const canonical = `${SITE_URL}${getLocalePath(lang)}`;
   description={description}
   lang={lang}
   ogImage={ogImage}
-  canonical={canonical}
   robots="noindex, follow"
 >
   <HomePage lang={lang} highlightId={guide.id} />

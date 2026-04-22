@@ -63,6 +63,7 @@ const taglineLines = t("hero.tagline").split("\n");
 </header>
 
 <main>
+  <div class="sr-live" id="sr-live" role="status" aria-live="polite" aria-atomic="true"></div>
   <section class="hero">
     <div class="container">
       <div class="hero-meta">
@@ -212,6 +213,8 @@ const taglineLines = t("hero.tagline").split("\n");
   const emptyState = document.getElementById(
     "empty-state"
   ) as HTMLElement | null;
+  const liveRegion = document.getElementById("sr-live") as HTMLDivElement | null;
+  let liveRegionTimeout: number | undefined;
 
   if (searchInput && tagFilter && resultCount && emptyState) {
     const activeTags = new Set<string>();
@@ -283,8 +286,13 @@ const taglineLines = t("hero.tagline").split("\n");
   );
   if (highlighted) {
     requestAnimationFrame(() => {
-      highlighted.scrollIntoView({ behavior: "smooth", block: "center" });
       highlighted.classList.add("is-highlight");
+      highlighted.focus({ preventScroll: true });
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      highlighted.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "center",
+      });
     });
   }
 
@@ -297,6 +305,8 @@ const taglineLines = t("hero.tagline").split("\n");
 
     const path = btn.dataset.sharePath ?? "";
     const title = btn.dataset.shareTitle ?? "";
+    const copiedLabel = btn.dataset.copiedLabel ?? "";
+    const copyFailedLabel = btn.dataset.copyFailedLabel ?? "";
     const url = window.location.origin + path;
 
     const shareData: ShareData = { title, url };
@@ -317,10 +327,32 @@ const taglineLines = t("hero.tagline").split("\n");
     try {
       await navigator.clipboard.writeText(url);
     } catch {
+      if (liveRegion) {
+        liveRegion.textContent = copyFailedLabel;
+        if (liveRegionTimeout) {
+          window.clearTimeout(liveRegionTimeout);
+        }
+        liveRegionTimeout = window.setTimeout(() => {
+          if (liveRegion) {
+            liveRegion.textContent = "";
+          }
+        }, 2000);
+      }
       return;
     }
 
     btn.dataset.copied = "true";
+    if (liveRegion) {
+      liveRegion.textContent = copiedLabel;
+      if (liveRegionTimeout) {
+        window.clearTimeout(liveRegionTimeout);
+      }
+      liveRegionTimeout = window.setTimeout(() => {
+        if (liveRegion) {
+          liveRegion.textContent = "";
+        }
+      }, 2000);
+    }
     window.setTimeout(() => {
       delete btn.dataset.copied;
     }, 1600);
