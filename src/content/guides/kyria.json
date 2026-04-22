@@ -1,0 +1,14 @@
+{
+  "name": "Kyria",
+  "designer": "Thomas Baart",
+  "description": "最大50キーの40%分割カラムスタッガードキーボード。強めのカラムスタッガードと大きな親指クラスタを備え、MX/Choc両対応でエンコーダ位置も選べる定番作。",
+  "url": "https://docs.splitkb.com/product-guides/kyria/build-guides/revision-3",
+  "tags": ["分割", "40%", "カラムスタッガード", "MX互換", "Choc互換"],
+  "shopLinks": [
+    {
+      "name": "splitkb.com",
+      "url": "https://splitkb.com/products/kyria-rev3"
+    }
+  ],
+  "addedAt": "2026-04-22"
+}
