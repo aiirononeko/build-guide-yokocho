@@ -1,0 +1,14 @@
+{
+  "name": "Aurora Helix",
+  "designer": "Makoto Kurauchi",
+  "description": "最大64キーの分割オーソリニアキーボード。Helix を splitkb.com が Aurora シリーズとして再設計し、MX/Choc 両対応、OLED、エンコーダ、無線向け電源スイッチに対応する。",
+  "url": "https://docs.splitkb.com/product-guides/aurora-series/build-guide",
+  "tags": ["分割", "60%", "オーソリニア", "MX互換", "Choc互換"],
+  "shopLinks": [
+    {
+      "name": "splitkb.com",
+      "url": "https://splitkb.com/products/aurora-helix"
+    }
+  ],
+  "addedAt": "2026-04-22"
+}
