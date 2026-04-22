@@ -7,9 +7,10 @@ import GuideCard from "./GuideCard.astro";
 
 type Props = {
   lang: Locale;
+  highlightId?: string;
 };
 
-const { lang } = Astro.props;
+const { lang, highlightId } = Astro.props;
 const t = useTranslations(lang);
 const alternateLang = getAlternateLang(lang);
 
@@ -140,7 +141,14 @@ const taglineLines = t("hero.tagline").split("\n");
   <section class="grid-section">
     <div class="container">
       <div class="card-grid" id="card-grid">
-        {guides.map((g, i) => <GuideCard guide={g} index={i + 1} lang={lang} />)}
+        {guides.map((g, i) => (
+          <GuideCard
+            guide={g}
+            index={i + 1}
+            lang={lang}
+            highlight={highlightId === g.id}
+          />
+        ))}
       </div>
       <p class="empty-state" id="empty-state" hidden>
         {t("grid.empty")}
@@ -269,6 +277,54 @@ const taglineLines = t("hero.tagline").split("\n");
       filterCards();
     });
   }
+
+  const highlighted = document.querySelector<HTMLElement>(
+    '[data-card][data-highlight="true"]'
+  );
+  if (highlighted) {
+    requestAnimationFrame(() => {
+      highlighted.scrollIntoView({ behavior: "smooth", block: "center" });
+      highlighted.classList.add("is-highlight");
+    });
+  }
+
+  document.addEventListener("click", async (e) => {
+    const btn = (e.target as HTMLElement | null)?.closest<HTMLButtonElement>(
+      ".card-share"
+    );
+    if (!btn) return;
+    e.preventDefault();
+
+    const path = btn.dataset.sharePath ?? "";
+    const title = btn.dataset.shareTitle ?? "";
+    const url = window.location.origin + path;
+
+    const shareData: ShareData = { title, url };
+    const canNativeShare =
+      typeof navigator.share === "function" &&
+      (typeof navigator.canShare !== "function" ||
+        navigator.canShare(shareData));
+
+    if (canNativeShare) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch (err) {
+        if ((err as DOMException)?.name === "AbortError") return;
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      return;
+    }
+
+    btn.dataset.copied = "true";
+    window.setTimeout(() => {
+      delete btn.dataset.copied;
+    }, 1600);
+  });
 
   const toggle = document.querySelector<HTMLAnchorElement>("[data-lang-toggle]");
   if (toggle) {

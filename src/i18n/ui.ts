@@ -41,6 +41,8 @@ export const ui = {
     // Card
     "card.by": "by",
     "card.buildGuide": "Build Guide",
+    "card.share": "リンクをシェア",
+    "card.copied": "リンクをコピーしました",
 
     // About
     "about.sectionTitle": "/ About",
@@ -92,6 +94,8 @@ export const ui = {
     // Card
     "card.by": "by",
     "card.buildGuide": "Build Guide",
+    "card.share": "Share link",
+    "card.copied": "Link copied",
 
     // About
     "about.sectionTitle": "/ About",

@@ -6,6 +6,9 @@ type Props = {
   title: string;
   description?: string;
   lang?: Locale;
+  ogImage?: string;
+  canonical?: string;
+  robots?: string;
 };
 
 const SITE_URL = "https://yokocho.build";
@@ -19,10 +22,16 @@ const alternateLocale = alternateLang === "ja" ? "ja_JP" : "en_US";
 const {
   title,
   description = t("meta.description"),
+  ogImage: ogImageProp,
+  canonical: canonicalProp,
+  robots,
 } = Astro.props;
 
-const ogImage = `${SITE_URL}/og.png`;
-const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
+const ogImage = ogImageProp ?? `${SITE_URL}/og.png`;
+const canonicalURL = canonicalProp
+  ? new URL(canonicalProp)
+  : new URL(Astro.url.pathname, SITE_URL);
+const pageURL = new URL(Astro.url.pathname, SITE_URL);
 const alternateURL = new URL(getLocalePath(alternateLang), SITE_URL);
 ---
 
@@ -39,10 +48,11 @@ const alternateURL = new URL(getLocalePath(alternateLang), SITE_URL);
     <link rel="alternate" hreflang={lang} href={canonicalURL.href} />
     <link rel="alternate" hreflang={alternateLang} href={alternateURL.href} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {robots && <meta name="robots" content={robots} />}
 
     <!-- OGP -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:url" content={pageURL.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />

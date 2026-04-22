@@ -1,0 +1,38 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import HomePage from "../../components/HomePage.astro";
+import { useTranslations, getLocalePath } from "../../i18n/utils";
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const guides = await getCollection("guides");
+  return guides.map((entry) => ({
+    params: { id: entry.id },
+    props: { guide: { id: entry.id, ...entry.data } },
+  }));
+}) satisfies GetStaticPaths;
+
+const SITE_URL = "https://yokocho.build";
+const lang = "ja" as const;
+const { guide } = Astro.props;
+const t = useTranslations(lang);
+
+const title = `${guide.name} — ${t("meta.siteName")}`;
+const description = guide.description;
+const ogImage = `${SITE_URL}/og/${guide.id}.png`;
+const canonical = `${SITE_URL}${getLocalePath(lang)}`;
+---
+
+<Layout
+  title={title}
+  description={description}
+  lang={lang}
+  ogImage={ogImage}
+  canonical={canonical}
+  robots="noindex, follow"
+>
+  <HomePage lang={lang} highlightId={guide.id} />
+</Layout>
