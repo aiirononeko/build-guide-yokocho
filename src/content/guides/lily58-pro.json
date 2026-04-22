@@ -1,0 +1,14 @@
+{
+  "name": "Lily58 Pro",
+  "designer": "Naoki Katahira",
+  "description": "58キー+数字列の分割カラムスタッガードキーボード。OLEDやロータリーエンコーダに対応し、リバーシブルPCBとコンスルー前提の組み立てやすさで広く親しまれる定番機。",
+  "url": "https://kata0510.github.io/Lily58-Document/Lily58_Pro_BG/",
+  "tags": ["分割", "60%", "カラムスタッガード", "MX互換"],
+  "shopLinks": [
+    {
+      "name": "遊舎工房",
+      "url": "https://shop.yushakobo.jp/products/lily58-pro/"
+    }
+  ],
+  "addedAt": "2026-04-22"
+}
