@@ -1,0 +1,8 @@
+{
+  "name": "Cheapino",
+  "designer": "tompi",
+  "description": "RJ45接続とJapanese duplex matrixを採用し、片側1枚のリバーシブルPCBと単一MCUで組める、低コスト志向の36キー分割キーボード。",
+  "url": "https://github.com/tompi/cheapino/blob/master/doc/buildguide_v2.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "MX互換"],
+  "addedAt": "2026-04-22"
+}
