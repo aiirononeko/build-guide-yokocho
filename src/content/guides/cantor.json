@@ -1,0 +1,8 @@
+{
+  "name": "Cantor",
+  "designer": "diepala",
+  "description": "42キーの分割ダイオードレスキーボード。Corne系より強めのカラムスタッガードを備え、シンプルで組みやすい設計が特徴。Cantor Classic は Choc スイッチ前提のロープロファイル構成になっている。",
+  "url": "https://github.com/diepala/cantor/blob/main/doc/build_guide.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "addedAt": "2026-04-23"
+}
