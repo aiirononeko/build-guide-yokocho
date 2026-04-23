@@ -1,0 +1,8 @@
+{
+  "name": "Hillside",
+  "designer": "mmccoyd",
+  "description": "3行構成を中心にした40%分割カラムスタッガードキーボードファミリー。Hillside 46/48/52/56などを含み、Choc v1スイッチ、広めの親指アーク、任意のエンコーダや無線構成に対応する。",
+  "url": "https://github.com/mmccoyd/hillside/wiki",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "addedAt": "2026-04-24"
+}
