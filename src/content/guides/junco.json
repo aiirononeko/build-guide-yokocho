@@ -1,0 +1,8 @@
+{
+  "name": "Junco",
+  "designer": "daneski13",
+  "description": "4x6配列をベースに2〜4基のロータリーエンコーダと Per-key RGB を載せられる60%分割キーボード。RP2040採用で、強めのカラムスタッガードとMXホットスワップ対応を両立している。",
+  "url": "https://github.com/daneski13/Junco#build-guide--assembly",
+  "tags": ["分割", "60%", "カラムスタッガード", "MX互換"],
+  "addedAt": "2026-04-23"
+}
