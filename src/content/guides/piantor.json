@@ -1,0 +1,14 @@
+{
+  "name": "Piantor",
+  "designer": "beekeeb",
+  "description": "42キーまたは36キーに切り替えられる、RP2040採用の分割ロープロファイルキーボード。強めのカラムスタッガードとダイオードレス設計で、組みやすさとChocホットスワップ対応を両立している。",
+  "url": "https://docs.beekeeb.com/piantor-keyboard#build-guide",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "shopLinks": [
+    {
+      "name": "BeeKeeb",
+      "url": "https://shop.beekeeb.com/product/piantor-keyboard-kit/"
+    }
+  ],
+  "addedAt": "2026-04-23"
+}
