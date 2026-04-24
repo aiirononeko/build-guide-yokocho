@@ -1,0 +1,11 @@
+{
+  "name": "Sinc",
+  "designer": "Keebio",
+  "description": "75%/TKLクラスの分割ロウスタッガードキーボード。ホットスワップ対応のRev.3〜4向けガイドでは、Quefrency系の組み立て手順を参照しつつ、ISO Enter変換やRP2040搭載版の再フラッシュを補足する。",
+  "descriptionEn": "A 75%/TKL-class split row-staggered keyboard. The Rev. 3-4 hotswap guide points to the Quefrency-style build flow while adding Sinc-specific ISO Enter conversion and RP2040 reflashing notes.",
+  "url": "https://docs.keeb.io/sinc-rev3-build-guide",
+  "tags": ["分割", "75%", "ロウスタッガード", "MX互換"],
+  "tagsEn": ["split", "75%", "row-staggered", "MX-compatible"],
+  "shopLinks": [],
+  "addedAt": "2026-04-24"
+}

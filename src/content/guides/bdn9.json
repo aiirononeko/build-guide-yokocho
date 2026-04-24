@@ -1,0 +1,11 @@
+{
+  "name": "BDN9",
+  "designer": "Keebio",
+  "description": "3x3配列の9キーマクロパッド。Rev.3ガイドではMX互換ホットスワップ、最大3基のロータリーエンコーダ、RGB LED、同梱サポートパーツを使ったケース組み立てを案内している。",
+  "descriptionEn": "A 3x3 nine-key macropad. The Rev. 3 guide covers MX-compatible hotswap sockets, up to three rotary encoders, RGB LEDs, and case assembly with the included support piece.",
+  "url": "https://docs.keeb.io/bdn9-rev3-build-guide",
+  "tags": ["一体型", "マクロパッド", "MX互換"],
+  "tagsEn": ["unibody", "macropad", "MX-compatible"],
+  "shopLinks": [],
+  "addedAt": "2026-04-24"
+}

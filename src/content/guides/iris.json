@@ -1,0 +1,13 @@
+{
+  "name": "Iris",
+  "designer": "Lewis Ridden / Keebio",
+  "description": "4x6配列と2〜4個の親指キーを備える分割カラムスタッガードキーボード。Rev.6〜8のホットスワップ版ガイドでは、MX互換スイッチ、ロータリーエンコーダ、サンドイッチケースの組み立てを案内している。",
+  "descriptionEn": "A split column-staggered keyboard with a 4x6 matrix and two to four thumb keys per half. The Rev. 6-8 hotswap guide covers MX switches, optional rotary encoders, and sandwich-case assembly.",
+  "url": "https://docs.keeb.io/iris-rev6-build-guide",
+  "tags": ["分割", "60%", "カラムスタッガード", "MX互換"],
+  "tagsEn": ["split", "60%", "column-staggered", "MX-compatible"],
+  "shopLinks": [
+    { "name": "Keebio", "url": "https://keeb.io/products/iris-rev-8-keyboard-split-ergonomic-keyboard" }
+  ],
+  "addedAt": "2026-04-24"
+}

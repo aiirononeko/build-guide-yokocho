@@ -1,0 +1,13 @@
+{
+  "name": "Quefrency",
+  "designer": "Keebio",
+  "description": "65%/65XTの分割ロウスタッガードキーボード。Rev.4〜6のホットスワップ版ガイドでは、左右分割PCB、任意で折り取れる左マクロ列、ISO Enter対応加工、ロータリーエンコーダ実装を扱う。",
+  "descriptionEn": "A 65%/65XT split row-staggered keyboard. The Rev. 4-6 hotswap guide covers split PCBs, an optional break-off left macro section, ISO Enter conversion, and rotary encoder installation.",
+  "url": "https://docs.keeb.io/quefrency-hotswap-build-guide",
+  "tags": ["分割", "65%", "ロウスタッガード", "MX互換"],
+  "tagsEn": ["split", "65%", "row-staggered", "MX-compatible"],
+  "shopLinks": [
+    { "name": "Keebio", "url": "https://keeb.io/products/quefrency-rev-6-pcbs-hotswap-65-65xt-split-staggered-keyboard" }
+  ],
+  "addedAt": "2026-04-24"
+}
