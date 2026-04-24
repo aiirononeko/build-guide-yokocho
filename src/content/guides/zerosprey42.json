@@ -1,0 +1,8 @@
+{
+  "name": "Zerosprey42",
+  "designer": "beekeeb",
+  "description": "RP2040-Zeroを使う42キーのモノブロックスプリットキーボード。Choc v1ホットスワップとロープロファイルケースを備え、少ない実装点数で組みやすい一体型設計になっている。",
+  "url": "https://docs.beekeeb.com/zerosprey42-keyboard#build-guide",
+  "tags": ["一体型", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "addedAt": "2026-04-23"
+}
