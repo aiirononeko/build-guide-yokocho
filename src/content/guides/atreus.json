@@ -1,0 +1,8 @@
+{
+  "name": "Atreus",
+  "designer": "Phil Hagelberg",
+  "description": "42キーの一体型エルゴノミックキーボード。左右の手に合わせて角度を付けたカラムスタッガード配列を小型ケースに収め、親指キーとレイヤーを活用するクラシックなDIYキット。",
+  "url": "https://atreus.technomancy.us/assembly.pdf",
+  "tags": ["一体型", "40%", "カラムスタッガード", "MX互換"],
+  "addedAt": "2026-04-24"
+}
