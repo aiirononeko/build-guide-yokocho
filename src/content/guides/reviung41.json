@@ -2,7 +2,9 @@
   "name": "REVIUNG41",
   "designer": "gtips",
   "description": "41キーの一体型カラムスタッガードキーボード。中央に大きめの親指キーを置いたコンパクトなレイアウトで、MX互換スイッチ、SMDダイオード、ホットスワップソケット、Underglow LEDに対応する。",
+  "descriptionEn": "A 41-key unibody column-staggered keyboard. Its compact layout places larger thumb keys in the center and supports MX-compatible switches, SMD diodes, hotswap sockets, and underglow LEDs.",
   "url": "https://reviung.com/build-guide/391/",
   "tags": ["一体型", "40%", "カラムスタッガード", "MX互換"],
+  "tagsEn": ["unibody", "40%", "column-staggered", "MX-compatible"],
   "addedAt": "2026-04-24"
 }

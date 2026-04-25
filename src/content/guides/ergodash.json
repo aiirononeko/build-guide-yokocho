@@ -2,7 +2,9 @@
   "name": "ErgoDash",
   "designer": "omkbd",
   "description": "左右分割のカラムスタッガードキーボード。PCBを切り離して好みのキー数や親指キー構成を選べる設計で、バックライト、Underglow LED、スタビライザー、VIA用ファームウェアに対応する。",
+  "descriptionEn": "A split column-staggered keyboard. Its separable PCB lets builders choose their preferred key count and thumb-key layout, with support for backlighting, underglow LEDs, stabilizers, and VIA firmware.",
   "url": "https://github.com/omkbd/ErgoDash/blob/master/Doc/build.md",
   "tags": ["分割", "カラムスタッガード", "MX互換"],
+  "tagsEn": ["split", "column-staggered", "MX-compatible"],
   "addedAt": "2026-04-24"
 }

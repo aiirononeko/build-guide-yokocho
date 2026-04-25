@@ -2,7 +2,9 @@
   "name": "Hillside",
   "designer": "mmccoyd",
   "description": "3行構成を中心にした40%分割カラムスタッガードキーボードファミリー。Hillside 46/48/52/56などを含み、Choc v1スイッチ、広めの親指アーク、任意のエンコーダや無線構成に対応する。",
+  "descriptionEn": "A family of 40% split column-staggered keyboards centered on three-row layouts. It includes Hillside 46/48/52/56, with Choc v1 switches, wide thumb arcs, optional encoders, and wireless builds.",
   "url": "https://github.com/mmccoyd/hillside/wiki",
   "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "tagsEn": ["split", "40%", "column-staggered", "Choc-compatible", "low-profile"],
   "addedAt": "2026-04-24"
 }
