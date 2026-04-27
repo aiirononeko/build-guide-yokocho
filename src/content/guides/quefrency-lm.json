@@ -1,0 +1,16 @@
+{
+  "name": "Quefrency LM",
+  "designer": "Keebio",
+  "description": "Quefrencyのロープロファイル分割ロウスタッガード版。Choc V1/V2対応ホットスワップPCB、アルミトレイケース、シリコンライナー、フォーム、マクロ列有無の構成を案内している。",
+  "descriptionEn": "A low-profile split row-staggered Quefrency variant. The guide covers Choc V1/V2 hotswap PCBs, aluminum tray cases, silicone liners, foam, and macro/no-macro configurations.",
+  "url": "https://docs.keeb.io/quefrency-lm-build-guide",
+  "tags": ["分割", "65%", "ロウスタッガード", "Choc互換", "ロープロファイル"],
+  "tagsEn": ["split", "65%", "row-staggered", "Choc-compatible", "low-profile"],
+  "shopLinks": [
+    {
+      "name": "Keebio",
+      "url": "https://keeb.io/products/quefrency-lm-kit"
+    }
+  ],
+  "addedAt": "2026-04-27"
+}

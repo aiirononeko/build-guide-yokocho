@@ -1,0 +1,16 @@
+{
+  "name": "Iris CE",
+  "designer": "Keebio",
+  "description": "IrisのコンパクトなChoc V1ロープロファイル版。Rev.1 PCB、アルミまたはポリカーボネートケース、Poronサポート、ホットスワップスイッチ、左右ケース組み立てを案内している。",
+  "descriptionEn": "A compact Choc V1 low-profile variant of the Iris. The guide covers Rev. 1 PCBs, aluminum or polycarbonate cases, Poron support, hotswap switches, and split case assembly.",
+  "url": "https://docs.keeb.io/iris-ce-build-guide",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "tagsEn": ["split", "40%", "column-staggered", "Choc-compatible", "low-profile"],
+  "shopLinks": [
+    {
+      "name": "Keebio",
+      "url": "https://keeb.io/products/iris-ce-keyboard-kit"
+    }
+  ],
+  "addedAt": "2026-04-27"
+}

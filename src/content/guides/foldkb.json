@@ -1,0 +1,16 @@
+{
+  "name": "FoldKB",
+  "designer": "Keebio",
+  "description": "標準キーセットを使いやすい分割オーソリニアキーボード。公式ページでは共通するQuefrency/Sinc/KBO-5000手順への参照に加え、FoldKB固有の動画、配線修正メモ、キーマップを案内している。",
+  "descriptionEn": "A split ortholinear keyboard designed to work well with standard keysets. The official page points to the shared Quefrency/Sinc/KBO-5000 flow and adds FoldKB-specific video, wiring notes, and keymap details.",
+  "url": "https://docs.keeb.io/foldkb-build-guide",
+  "tags": ["分割", "オーソリニア", "MX互換"],
+  "tagsEn": ["split", "ortholinear", "MX-compatible"],
+  "shopLinks": [
+    {
+      "name": "Keebio",
+      "url": "https://keeb.io/products/foldkb"
+    }
+  ],
+  "addedAt": "2026-04-27"
+}
