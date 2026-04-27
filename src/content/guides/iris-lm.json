@@ -1,0 +1,16 @@
+{
+  "name": "Iris LM",
+  "designer": "Keebio",
+  "description": "Irisの標準キーピッチなロープロファイル版。Choc V1/V2またはGateron LP対応PCB、トレイケース、シリコンライナー、フォーム、ホットスワップスイッチの組み立てを案内している。",
+  "descriptionEn": "A standard-spaced low-profile Iris variant. The guide covers Choc V1/V2 or Gateron LP PCBs, tray cases, silicone liners, foam, and hotswap switch assembly.",
+  "url": "https://docs.keeb.io/iris-lm-build-guide",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル"],
+  "tagsEn": ["split", "40%", "column-staggered", "Choc-compatible", "low-profile"],
+  "shopLinks": [
+    {
+      "name": "Keebio",
+      "url": "https://keeb.io/products/iris-lm-kit"
+    }
+  ],
+  "addedAt": "2026-04-27"
+}

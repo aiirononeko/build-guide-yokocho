@@ -1,0 +1,16 @@
+{
+  "name": "Sinc Rev. 3-4 Hotswap",
+  "designer": "Keebio",
+  "description": "75%/TKLサイズの分割ロウスタッガードキーボード。Rev.3-4のホットスワップPCB向けに、ISO Enter変換、ロータリーエンコーダ、スタビライザー、RP2040ボードの再書き込みを案内している。",
+  "descriptionEn": "A 75%/TKL split row-staggered keyboard. The Rev. 3-4 hotswap guide covers ISO Enter conversion, rotary encoders, stabilizers, and reflashing the RP2040 board.",
+  "url": "https://docs.keeb.io/sinc-rev3-build-guide",
+  "tags": ["分割", "75%", "ロウスタッガード", "MX互換"],
+  "tagsEn": ["split", "75%", "row-staggered", "MX-compatible"],
+  "shopLinks": [
+    {
+      "name": "Keebio",
+      "url": "https://keeb.io/products/sinc-rev-4-split-staggered-75-keyboard"
+    }
+  ],
+  "addedAt": "2026-04-27"
+}
