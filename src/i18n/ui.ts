@@ -32,7 +32,6 @@ export const ui = {
     "nav.toLight": "ライトモードに切り替え",
 
     // Today's Pick
-    "todaysPick.lead": "毎日0時、横丁の中から3軒を抜粋。",
     "todaysPick.count": "3 軒",
 
     // Filters
@@ -93,7 +92,6 @@ export const ui = {
     "nav.toLight": "Switch to light mode",
 
     // Today's Pick
-    "todaysPick.lead": "Three picks, refreshed at midnight JST.",
     "todaysPick.count": "3 picks",
 
     // Filters

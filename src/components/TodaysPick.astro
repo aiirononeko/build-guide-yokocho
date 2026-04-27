@@ -65,6 +65,8 @@ const pool = guides.map((g) => ({
   id: g.id,
   name: g.name,
   designer: g.designer,
+  description: g.description,
+  descriptionEn: g.descriptionEn ?? null,
   url: g.url,
   tags: g.tags,
   tagsEn: g.tagsEn ?? null,
@@ -84,11 +86,11 @@ const buildGuideLabel = t("card.buildGuide");
       <span class="section-meta">{t("todaysPick.count")}</span>
     </div>
 
-    <p class="pick-lead">{t("todaysPick.lead")}</p>
-
     <div class="pick-grid" id="todays-pick-grid">
       {
         initialPicks.map((g, i) => {
+          const desc =
+            lang === "en" && g.descriptionEn ? g.descriptionEn : g.description;
           const tags = lang === "en" && g.tagsEn ? g.tagsEn : g.tags;
           const num = String(i + 1).padStart(2, "0");
           return (
@@ -113,6 +115,9 @@ const buildGuideLabel = t("card.buildGuide");
                 <span class="pick-card-designer-name" data-pick-designer>
                   {g.designer}
                 </span>
+              </p>
+              <p class="pick-card-desc" data-pick-desc>
+                {desc}
               </p>
               <div class="pick-card-tags" data-pick-tags>
                 {tags.map((tag) => (
@@ -159,6 +164,8 @@ const buildGuideLabel = t("card.buildGuide");
     id: string;
     name: string;
     designer: string;
+    description: string;
+    descriptionEn: string | null;
     url: string;
     tags: string[];
     tagsEn: string[] | null;
@@ -253,6 +260,7 @@ const buildGuideLabel = t("card.buildGuide");
           slot.dataset.id = p.id;
 
           const isEn = labels.lang === "en";
+          const desc = isEn && p.descriptionEn ? p.descriptionEn : p.description;
           const tags = isEn && p.tagsEn ? p.tagsEn : p.tags;
 
           const nameEl = slot.querySelector<HTMLElement>("[data-pick-name]");
@@ -262,6 +270,9 @@ const buildGuideLabel = t("card.buildGuide");
             "[data-pick-designer]"
           );
           if (designerEl) designerEl.textContent = p.designer;
+
+          const descEl = slot.querySelector<HTMLElement>("[data-pick-desc]");
+          if (descEl) descEl.textContent = desc;
 
           const tagsEl = slot.querySelector<HTMLElement>("[data-pick-tags]");
           if (tagsEl) {
@@ -307,7 +318,7 @@ const buildGuideLabel = t("card.buildGuide");
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 20px;
+    margin-bottom: 36px;
     gap: 16px;
   }
 
@@ -338,14 +349,6 @@ const buildGuideLabel = t("card.buildGuide");
     white-space: nowrap;
   }
 
-  .pick-lead {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--text-soft);
-    margin-bottom: 36px;
-    max-width: 640px;
-  }
-
   .pick-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -361,7 +364,7 @@ const buildGuideLabel = t("card.buildGuide");
     display: flex;
     flex-direction: column;
     gap: 14px;
-    min-height: 220px;
+    min-height: 280px;
     transition: background-color 0.2s ease;
   }
 
@@ -418,6 +421,13 @@ const buildGuideLabel = t("card.buildGuide");
     font-weight: 500;
   }
 
+  .pick-card-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-soft);
+    flex: 1;
+  }
+
   .pick-card-tags {
     display: flex;
     flex-wrap: wrap;
@@ -435,7 +445,6 @@ const buildGuideLabel = t("card.buildGuide");
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
     font-family: var(--font-display);
     font-size: 14px;
     font-weight: 600;
@@ -479,7 +488,7 @@ const buildGuideLabel = t("card.buildGuide");
       max-width: 86%;
       border: 1px solid var(--border);
       scroll-snap-align: start;
-      min-height: 200px;
+      min-height: 240px;
     }
   }
 
