@@ -9,6 +9,7 @@ import {
 } from "../i18n/utils";
 import { languages } from "../i18n/ui";
 import GuideCard from "./GuideCard.astro";
+import TodaysPick from "./TodaysPick.astro";
 
 type Props = {
   lang: Locale;
@@ -148,6 +149,8 @@ const taglineLines = t("hero.tagline").split("\n");
       </div>
     </div>
   </section>
+
+  <TodaysPick guides={guides} lang={lang} />
 
   <section class="filters" id="guides">
     <div class="container">

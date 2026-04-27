@@ -1,0 +1,498 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { Locale } from "../i18n/ui";
+import { useTranslations } from "../i18n/utils";
+
+type GuideData = CollectionEntry<"guides">["data"] & { id: string };
+
+type Props = {
+  guides: GuideData[];
+  lang: Locale;
+};
+
+const { guides, lang } = Astro.props;
+const t = useTranslations(lang);
+
+const PICK_COUNT = 3;
+
+function getJstDateString(date: Date = new Date()): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+}
+
+function hashString(input: string): number {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return h >>> 0;
+}
+
+function mulberry32(seed: number): () => number {
+  let s = seed >>> 0;
+  return () => {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function pickIndices(dateStr: string, total: number, n: number): number[] {
+  const arr = Array.from({ length: total }, (_, i) => i);
+  const take = Math.min(n, total);
+  if (take <= 0) return [];
+  const rng = mulberry32(hashString(dateStr));
+  for (let i = 0; i < take; i++) {
+    const j = i + Math.floor(rng() * (total - i));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr.slice(0, take);
+}
+
+const initialDate = getJstDateString();
+const initialPicks = pickIndices(initialDate, guides.length, PICK_COUNT).map(
+  (i) => guides[i]
+);
+
+const pool = guides.map((g) => ({
+  id: g.id,
+  name: g.name,
+  designer: g.designer,
+  description: g.description,
+  descriptionEn: g.descriptionEn ?? null,
+  url: g.url,
+  tags: g.tags,
+  tagsEn: g.tagsEn ?? null,
+}));
+
+const byLabel = t("card.by");
+const buildGuideLabel = t("card.buildGuide");
+---
+
+<section class="todays-pick" id="todays-pick" aria-labelledby="todays-pick-title">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head-left">
+        <span class="section-marker" aria-hidden="true">●</span>
+        <h2 class="section-title" id="todays-pick-title">/ Today's Pick</h2>
+      </div>
+    </div>
+
+    <div class="pick-grid" id="todays-pick-grid">
+      {
+        initialPicks.map((g, i) => {
+          const desc =
+            lang === "en" && g.descriptionEn ? g.descriptionEn : g.description;
+          const tags = lang === "en" && g.tagsEn ? g.tagsEn : g.tags;
+          const num = String(i + 1).padStart(2, "0");
+          return (
+            <article
+              class="pick-card"
+              data-pick-slot={i}
+              data-id={g.id}
+            >
+              <div class="pick-card-head">
+                <span class="pick-card-num">{num} / TODAY</span>
+                <span class="pick-card-dot" aria-hidden="true">
+                  ●
+                </span>
+              </div>
+              <h3 class="pick-card-title" data-pick-name>
+                {g.name}
+              </h3>
+              <p class="pick-card-designer">
+                <span class="pick-card-by" data-pick-by>
+                  {byLabel}
+                </span>{" "}
+                <span class="pick-card-designer-name" data-pick-designer>
+                  {g.designer}
+                </span>
+              </p>
+              <p class="pick-card-desc" data-pick-desc>
+                {desc}
+              </p>
+              <div class="pick-card-tags" data-pick-tags>
+                {tags.map((tag) => (
+                  <span class="pick-card-tag">#{tag}</span>
+                ))}
+              </div>
+              <a
+                class="pick-card-link"
+                href={g.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-pick-link
+              >
+                <span data-pick-link-label>{buildGuideLabel}</span>
+                <span class="arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<script
+  type="application/json"
+  id="todays-pick-pool"
+  set:html={JSON.stringify(pool)}
+/>
+<script
+  type="application/json"
+  id="todays-pick-labels"
+  set:html={JSON.stringify({
+    by: byLabel,
+    buildGuide: buildGuideLabel,
+    lang,
+  })}
+/>
+
+<script>
+  type PoolEntry = {
+    id: string;
+    name: string;
+    designer: string;
+    description: string;
+    descriptionEn: string | null;
+    url: string;
+    tags: string[];
+    tagsEn: string[] | null;
+  };
+
+  type Labels = {
+    by: string;
+    buildGuide: string;
+    lang: string;
+  };
+
+  const PICK_COUNT = 3;
+
+  const grid = document.getElementById("todays-pick-grid");
+  const poolNode = document.getElementById("todays-pick-pool");
+  const labelsNode = document.getElementById("todays-pick-labels");
+  if (!grid || !poolNode || !labelsNode) {
+    /* nothing to do */
+  } else {
+    let pool: PoolEntry[] = [];
+    let labels: Labels = { by: "by", buildGuide: "Build Guide", lang: "ja" };
+    try {
+      pool = JSON.parse(poolNode.textContent || "[]");
+      labels = JSON.parse(labelsNode.textContent || "{}");
+    } catch {
+      /* swallow — keep SSR'd content */
+    }
+
+    if (Array.isArray(pool) && pool.length > 0) {
+      const getJstDate = (): string =>
+        new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Tokyo",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        }).format(new Date());
+
+      const hashString = (input: string): number => {
+        let h = 0x811c9dc5;
+        for (let i = 0; i < input.length; i++) {
+          h ^= input.charCodeAt(i);
+          h = Math.imul(h, 0x01000193);
+        }
+        return h >>> 0;
+      };
+
+      const mulberry32 = (seed: number): (() => number) => {
+        let s = seed >>> 0;
+        return () => {
+          s = (s + 0x6d2b79f5) >>> 0;
+          let t = s;
+          t = Math.imul(t ^ (t >>> 15), t | 1);
+          t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      };
+
+      const pickIndices = (
+        dateStr: string,
+        total: number,
+        n: number
+      ): number[] => {
+        const arr = Array.from({ length: total }, (_, i) => i);
+        const take = Math.min(n, total);
+        if (take <= 0) return [];
+        const rng = mulberry32(hashString(dateStr));
+        for (let i = 0; i < take; i++) {
+          const j = i + Math.floor(rng() * (total - i));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr.slice(0, take);
+      };
+
+      const today = getJstDate();
+      const picks = pickIndices(today, pool.length, PICK_COUNT).map(
+        (i) => pool[i]
+      );
+
+      const slots = Array.from(
+        grid.querySelectorAll<HTMLElement>("[data-pick-slot]")
+      );
+      const currentIds = slots.map((el) => el.dataset.id || "");
+      const nextIds = picks.map((p) => p.id);
+      const same =
+        currentIds.length === nextIds.length &&
+        currentIds.every((id, i) => id === nextIds[i]);
+
+      if (!same) {
+        picks.forEach((p, i) => {
+          const slot = slots[i];
+          if (!slot) return;
+          slot.dataset.id = p.id;
+
+          const isEn = labels.lang === "en";
+          const desc = isEn && p.descriptionEn ? p.descriptionEn : p.description;
+          const tags = isEn && p.tagsEn ? p.tagsEn : p.tags;
+
+          const nameEl = slot.querySelector<HTMLElement>("[data-pick-name]");
+          if (nameEl) nameEl.textContent = p.name;
+
+          const designerEl = slot.querySelector<HTMLElement>(
+            "[data-pick-designer]"
+          );
+          if (designerEl) designerEl.textContent = p.designer;
+
+          const descEl = slot.querySelector<HTMLElement>("[data-pick-desc]");
+          if (descEl) descEl.textContent = desc;
+
+          const tagsEl = slot.querySelector<HTMLElement>("[data-pick-tags]");
+          if (tagsEl) {
+            tagsEl.replaceChildren(
+              ...tags.map((tag) => {
+                const span = document.createElement("span");
+                span.className = "pick-card-tag";
+                span.textContent = `#${tag}`;
+                return span;
+              })
+            );
+          }
+
+          const linkEl = slot.querySelector<HTMLAnchorElement>(
+            "[data-pick-link]"
+          );
+          if (linkEl) linkEl.href = p.url;
+        });
+      }
+    }
+  }
+</script>
+
+<style>
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: 0 20px;
+    }
+  }
+
+  .todays-pick {
+    padding: 64px 0 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 36px;
+    gap: 16px;
+  }
+
+  .section-head-left {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .section-marker {
+    color: var(--accent);
+    font-size: 8px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .pick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .pick-card {
+    padding: 28px 24px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 280px;
+    transition: background-color 0.2s ease;
+  }
+
+  .pick-card:hover {
+    background: var(--bg-elev);
+  }
+
+  .pick-card:hover .pick-card-dot {
+    color: var(--accent);
+  }
+
+  .pick-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .pick-card-num {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .pick-card-dot {
+    color: var(--text-mute);
+    font-size: 8px;
+    transition: color 0.2s ease;
+  }
+
+  .pick-card-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .pick-card-designer {
+    font-size: 13px;
+    color: var(--text-soft);
+    letter-spacing: 0.01em;
+  }
+
+  .pick-card-designer-name {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .pick-card-desc {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-soft);
+    flex: 1;
+  }
+
+  .pick-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+
+  .pick-card-tag {
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.02em;
+  }
+
+  .pick-card-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    transition: color 0.15s ease;
+  }
+
+  .pick-card-link:hover {
+    color: var(--accent);
+  }
+
+  .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+  }
+
+  .pick-card-link:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 880px) {
+    .pick-grid {
+      grid-template-columns: 1fr;
+      border: none;
+      border-top: 1px solid var(--border);
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 16px 20px 16px;
+      margin: 0 -20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .pick-card {
+      flex: 0 0 86%;
+      max-width: 86%;
+      border: 1px solid var(--border);
+      scroll-snap-align: start;
+      min-height: 240px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .todays-pick {
+      padding: 40px 0 16px;
+    }
+
+    .section-title {
+      font-size: 24px;
+    }
+
+    .pick-card-title {
+      font-size: 24px;
+    }
+  }
+</style>
