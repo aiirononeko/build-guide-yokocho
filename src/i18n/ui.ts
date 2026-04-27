@@ -31,6 +31,10 @@ export const ui = {
     "nav.toDark": "ダークモードに切り替え",
     "nav.toLight": "ライトモードに切り替え",
 
+    // Today's Pick
+    "todaysPick.lead": "毎日0時、横丁の中から3軒を抜粋。",
+    "todaysPick.count": "3 軒",
+
     // Filters
     "filter.sectionTitle": "/ Guides",
     "filter.entries": "entries",
@@ -87,6 +91,10 @@ export const ui = {
     "nav.toggleTheme": "Toggle theme",
     "nav.toDark": "Switch to dark mode",
     "nav.toLight": "Switch to light mode",
+
+    // Today's Pick
+    "todaysPick.lead": "Three picks, refreshed at midnight JST.",
+    "todaysPick.count": "3 picks",
 
     // Filters
     "filter.sectionTitle": "/ Guides",
