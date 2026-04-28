@@ -1,0 +1,10 @@
+{
+  "name": "Plaid",
+  "designer": "hsgw",
+  "description": "12x4オーソリニア配列の一体型スルーホールキーボード。ATmega328PとV-USBを使い、部品実装、ブートローダ、QMK書き込みまで日本語/英語の手順が揃う。",
+  "descriptionEn": "A 12x4 ortholinear unibody through-hole keyboard. It uses an ATmega328P with V-USB, with Japanese and English docs covering assembly, bootloader setup, and QMK flashing.",
+  "url": "https://github.com/hsgw/plaid/tree/master/doc",
+  "tags": ["一体型", "40%", "オーソリニア", "スルーホール", "MX互換"],
+  "tagsEn": ["unibody", "40%", "ortholinear", "through-hole", "MX-compatible"],
+  "addedAt": "2026-04-28"
+}

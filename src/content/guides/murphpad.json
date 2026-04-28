@@ -1,0 +1,10 @@
+{
+  "name": "MurphPad",
+  "designer": "MechWild",
+  "description": "OLEDとロータリーエンコーダを備えたスルーホール式のテンキー/マクロパッド。通常テンキー、ミラー配置、全1Uなど複数レイアウトに対応するDIYキット。",
+  "descriptionEn": "A through-hole numpad and macropad kit with an OLED and rotary encoder. It supports normal numpad, mirrored numpad, and all-1U layout options.",
+  "url": "https://mechwild.com/guides/build-guides/murphpad-build-guide/",
+  "tags": ["一体型", "マクロパッド", "テンキー", "OLED", "ロータリーエンコーダ", "MX互換"],
+  "tagsEn": ["unibody", "macropad", "numpad", "OLED", "rotary encoder", "MX-compatible"],
+  "addedAt": "2026-04-28"
+}

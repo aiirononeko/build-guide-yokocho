@@ -1,0 +1,10 @@
+{
+  "name": "Orange Boy Ergo",
+  "designer": "MechWild",
+  "description": "矢印キーと左側マクロ列を備えたAlice風の一体型エルゴキーボード。BlackPill、QMK/VIA/VIAL、任意のロータリーエンコーダやRGBストリップに対応するスルーホールキット。",
+  "descriptionEn": "An Alice-like unibody ergonomic keyboard with arrow keys and a left macro column. This through-hole kit supports BlackPill controllers, QMK/VIA/VIAL, optional encoder, and RGB strip headers.",
+  "url": "https://mechwild.com/guides/build-guides/obe-build-guide/",
+  "tags": ["一体型", "ロウスタッガード", "Alice配列", "ロータリーエンコーダ", "MX互換"],
+  "tagsEn": ["unibody", "row-staggered", "Alice layout", "rotary encoder", "MX-compatible"],
+  "addedAt": "2026-04-28"
+}

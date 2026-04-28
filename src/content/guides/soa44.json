@@ -1,0 +1,10 @@
+{
+  "name": "Soa44",
+  "designer": "gohanda_kbd",
+  "description": "右手親指側に25mmトラックボールを備えた44キーの無線分割キーボード。Grin配列、単三電池駆動、PMW3610センサー、簡易ガスケットマウントを組み合わせる。",
+  "descriptionEn": "A 44-key wireless split keyboard with a 25 mm thumb trackball on the right half. It combines a Grin layout, AA battery power, a PMW3610 sensor, and a simple gasket mount.",
+  "url": "https://gohanda11.github.io/keyboard_buildguide/soa44.html",
+  "tags": ["分割", "40%", "トラックボール", "無線", "ガスケットマウント", "MX互換", "Choc互換"],
+  "tagsEn": ["split", "40%", "trackball", "wireless", "gasket mount", "MX-compatible", "Choc-compatible"],
+  "addedAt": "2026-04-28"
+}
