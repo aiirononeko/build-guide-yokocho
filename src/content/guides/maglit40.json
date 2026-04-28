@@ -1,0 +1,10 @@
+{
+  "name": "Maglit40",
+  "designer": "Cerbekos",
+  "description": "TRRSケーブルで左右分割、磁気ポゴピンで一体型としても使える40%キーボード。XIAO RP2040、Remap対応QMK、LEDインジケータを備えた小型ビルド。",
+  "descriptionEn": "A 40% keyboard that can work as a split board over TRRS or as a unibody board through magnetic pogo pins. It uses XIAO RP2040 controllers, Remap-ready QMK, and LED indicators.",
+  "url": "https://cerbekos00.hatenablog.com/entry/Maglit40_buildguide",
+  "tags": ["分割", "一体型", "40%", "磁気ポゴピン", "MX互換"],
+  "tagsEn": ["split", "unibody", "40%", "magnetic pogo pins", "MX-compatible"],
+  "addedAt": "2026-04-28"
+}
