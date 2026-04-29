@@ -1,0 +1,13 @@
+{
+  "name": "LaLaPad Gen2",
+  "designer": "ShiniNet",
+  "description": "独自設計のダブルトラックパッドを左右に搭載した42キーのワイヤレス分割キーボード。Choc V2互換スイッチ、5Wayスイッチ、テンティングスタンド、ZMKファームウェアに対応する。",
+  "descriptionEn": "A 42-key wireless split keyboard with custom dual trackpads on both halves. It supports Choc V2-compatible switches, 5-way switches, tenting stands, and ZMK firmware.",
+  "url": "https://github.com/ShiniNet/LaLaPadGen2/blob/main/guide/BuildGuide.md",
+  "tags": ["分割", "40%", "カラムスタッガード", "Choc互換", "ロープロファイル", "ポインティングデバイス"],
+  "tagsEn": ["split", "40%", "column-staggered", "Choc-compatible", "low-profile", "pointing device"],
+  "shopLinks": [
+    { "name": "BOOTH", "url": "https://shininet.booth.pm/items/8039543" }
+  ],
+  "addedAt": "2026-04-30"
+}
