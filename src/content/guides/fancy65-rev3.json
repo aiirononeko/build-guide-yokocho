@@ -1,0 +1,10 @@
+{
+  "name": "Fancy65 rev3",
+  "designer": "寺見屋ラボ",
+  "description": "65キーの左右分割ロウスタッガードキーボード。日本語入力向けの親指キーを備え、USBとBluetoothの両方に対応する。MXまたはGateron Low Profileスイッチをホットスワップで選べる。",
+  "descriptionEn": "A 65-key split row-staggered keyboard with thumb keys for Japanese input and support for both USB and Bluetooth. It offers hotswap configurations for MX or Gateron Low Profile switches.",
+  "url": "https://teramiya-lab.com/doujin/fancy65v3-buildguide/",
+  "tags": ["分割", "60%", "ロウスタッガード", "MX互換", "ロープロファイル", "ホットスワップ", "無線"],
+  "tagsEn": ["split", "60%", "row-staggered", "MX-compatible", "low-profile", "hotswap", "wireless"],
+  "addedAt": "2026-09-10"
+}

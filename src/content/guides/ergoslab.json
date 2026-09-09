@@ -1,0 +1,10 @@
+{
+  "name": "ErgoSlab",
+  "designer": "Tom Saleeba",
+  "description": "52キーの分割カラムスタッガードキーボード。42個のMXホットスワップキーと10個のChoc親指キーを組み合わせ、オプションでOLED、キーごとのLED、Underglowを搭載できる。",
+  "descriptionEn": "A 52-key split column-staggered keyboard combining 42 MX hotswap keys with 10 Choc thumb keys. Optional features include OLED displays, per-key LEDs, and underglow.",
+  "url": "https://github.com/tomsaleeba/ergoslab/blob/master/build-guide.md",
+  "tags": ["分割", "カラムスタッガード", "MX互換", "Choc互換", "ホットスワップ", "OLED", "RGB LED"],
+  "tagsEn": ["split", "column-staggered", "MX-compatible", "Choc-compatible", "hotswap", "OLED", "RGB LED"],
+  "addedAt": "2026-09-10"
+}
