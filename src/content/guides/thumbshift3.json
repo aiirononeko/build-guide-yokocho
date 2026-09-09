@@ -1,0 +1,16 @@
+{
+  "name": "ThumbShift3",
+  "designer": "yimamura",
+  "description": "59キーの一体型ロウスタッガードキーボード。日本語の親指シフト入力を意識したB割れ配列で、MXまたはChoc v2スイッチを選択でき、オプションの小型トラックボールにも対応する。",
+  "descriptionEn": "A 59-key unibody row-staggered keyboard with a split-space layout designed for Japanese thumb-shift input. It supports either MX or Choc v2 switches and an optional mini trackball.",
+  "url": "https://ima.hatenablog.jp/entry/2025/12/17/200000",
+  "tags": ["一体型", "60%", "ロウスタッガード", "MX互換", "Choc互換", "ロープロファイル", "ホットスワップ", "ポインティングデバイス", "トラックボール"],
+  "tagsEn": ["unibody", "60%", "row-staggered", "MX-compatible", "Choc-compatible", "low-profile", "hotswap", "pointing device", "trackball"],
+  "shopLinks": [
+    {
+      "name": "yimamura BOOTH",
+      "url": "https://booth.pm/ja/items/7761398"
+    }
+  ],
+  "addedAt": "2026-09-10"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "DYA2 rev1.1",
+  "designer": "cormoran",
+  "description": "左右分割の60%ロウスタッガードキーボード。US/JIS配列、34mmトラックボール、キー上のタッチセンサー、無線・有線接続に対応し、Tadpoleマウントのケースを採用する。",
+  "descriptionEn": "A split 60% row-staggered keyboard supporting US and JIS layouts, a 34 mm trackball, an above-key touch sensor, wireless or wired operation, and a Tadpole-mounted case.",
+  "url": "https://cormoran.github.io/dya2-keyboard/build-guide/v1/",
+  "tags": ["分割", "60%", "ロウスタッガード", "MX互換", "ホットスワップ", "無線", "ポインティングデバイス", "トラックボール"],
+  "tagsEn": ["split", "60%", "row-staggered", "MX-compatible", "hotswap", "wireless", "pointing device", "trackball"],
+  "addedAt": "2026-09-10"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Mellow65",
+  "designer": "寺見屋ラボ",
+  "description": "65キーの左右分割ロウスタッガードキーボード。Bluetooth専用で、日本語入力向けの親指キー、MXホットスワップ、ゴムワッシャを使った柔らかなマウント構造を備える。",
+  "descriptionEn": "A 65-key split row-staggered keyboard built exclusively for Bluetooth. It features thumb keys for Japanese input, MX hotswap sockets, and a soft mounting structure using rubber washers.",
+  "url": "https://teramiya-lab.com/doujin/mellow65-buildguide/",
+  "tags": ["分割", "60%", "ロウスタッガード", "MX互換", "ホットスワップ", "無線"],
+  "tagsEn": ["split", "60%", "row-staggered", "MX-compatible", "hotswap", "wireless"],
+  "shopLinks": [
+    {
+      "name": "寺見屋ラボ BOOTH",
+      "url": "https://booth.pm/ja/items/5541391"
+    }
+  ],
+  "addedAt": "2026-09-10"
+}
